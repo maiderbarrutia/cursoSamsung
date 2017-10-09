@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Gretong | Online store</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="" >
+	<meta name="keywords" content="">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,700" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<!-- PRIMER MENU -->
+<div class="first-menu">
+	<div class="container clearfix">
+		<div class="info pull-left">
+			<ul>
+				<li><a href="#">Help</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Delivery information</a></li>
+			</ul>
+		</div>
+		<div class="tel pull-right">
+			<p> <i class="glyphicon glyphicon-earphone"></i>Call us : 032 2352 782</p>
+		</div>
+	</div>
+</div>
+<!-- FINAL PRIMER MENU -->
+<!-- CABECERA -->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="logo col-sm-6">
+				<h1>
+					<a href="index.html">
+						<p>GRETONG</p>
+						<span>ONLINE STORE</span>
+					</a>
+				</h1>
+			</div>
+			<div class="col-sm-6 registro">
+				<div class="row">
+					<div class="col-md-12 clearfix register-boton">
+						<div class="dropdown pull-left">
+	                        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown">LOGIN</a>
+	                        <div class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
+	                            <div class="col-lg-12">
+	                                <div class="text-center tit-register"><p>LOGIN</p></div>
+	                                <form id="ajax-login-form" action="#" method="post" role="form" autocomplete="off">
+	                                    <div class="form-group">
+	                                        <label for="username">Username</label>
+	                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+	                                    </div>
+
+	                                    <div class="form-group">
+	                                        <label for="password">Password</label>
+	                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+	                                    </div>
+
+	                                    <div class="form-group">
+	                                        <div class="row">
+	                                            <div class="col-xs-7">
+	                                                <input type="checkbox" tabindex="3" name="remember" id="remember">
+	                                                <label for="remember"> Remember Me</label>
+	                                            </div>
+	                                            <div class="col-xs-5 pull-right">
+	                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn" value="Log In">
+	                                            </div>
+	                                        </div>
+	                                    </div>
+
+	                                    <div class="form-group">
+	                                        <div class="row">
+	                                            <div class="col-lg-12">
+	                                                <div class="text-center">
+	                                                    <a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    
+	                                </form>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="dropdown pull-left">
+	                        <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">REGISTER</a>
+	                        <div class="dropdown-menu" role="menu">
+	                            <div class="col-lg-12">
+	                                <div class="text-center tit-register"><p>REGISTER</p></div>
+									<form id="ajax-register-form" action="#" method="post" role="form" autocomplete="off">
+										<div class="form-group">
+											<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										</div>
+										<div class="form-group">
+											<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										</div>
+										<div class="form-group">
+											<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+										</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-xs-6 col-xs-offset-3">
+													<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn" value="Register">
+												</div>
+											</div>
+										</div>
+									</form>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="pull-right list-product">
+		                    <div class="pull-left cart">
+		                    	<p><i class="glyphicon glyphicon-shopping-cart"></i>My Cart ( 0 ) : $0</p>
+		                    </div>
+		                    <div class="pull-left checkout">
+		                    	<button type="submit" class="btn btn-primary"><a href="#">CHECKOUT</a></button>
+		                    </div>
+		                </div>
+	                </div>
+				</div>
+
+
+
+
+
+
+
+
+
+			
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" />
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+
+
+			</div>
+		</div>
+	</div>
+</header>
+<!-- FINAL CABECERA -->
+<!-- MENU -->
+<nav class="container">
+	<div class="navbar navbar-default">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand active" href="#">HOME</a>
+    	</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav">
+		        <li><a href="#">NEW ARRIVALS </a></li>
+		        <li><a href="#">TUXEDO</a></li>
+		        <li><a href="#">SWEATER</a></li>
+		        <li><a href="#">SHOES</a></li>
+		        <li><a href="#">GLASSES</a></li>
+		        <li><a href="#">T-SHIRT</a></li>
+		        <li><a href="#">WATCHES</a></li>
+		    </ul>
+	    </div>
+	</div>
+</nav>
+<!-- FINAL MENU -->
+<!-- CONTENIDO -->
+<section class="productos">
+	<div class="container">
+		<div class="row">
+			<div class="productos-top">
+				<article class="col-xs-6">
+					<img src="img/1.jpg" class="img-responsive" alt="">
+					<div class="content-text">
+						<h2>NEW ARRIVALS</h2>
+						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
+						<div class="square">
+							<a href="details.html">TAKE A LOOK</a>
+						</div>
+					</div>
+				</article>
+				<article class="col-xs-6">
+					<img src="img/2.jpg" class="img-responsive" alt="">
+					<div class="content-text">
+						<h2>TUXEDO</h2>
+						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
+						<div class="square">
+							<a href="details.html">SHOP NOW</a>
+						</div>
+					</div>
+				</article>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="productos-middle">
+				<article class="col-xs-8 position-left">
+					<img src="img/3.jpg" class="img-responsive" alt="">
+					<div class="content-text2">
+						<h2>SWEATER</h2>
+						<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
+						<div class="square">
+							<a href="details.html">SHOP NOW</a>
+						</div>
+					</div>
+				</article>
+				<article class="col-xs-4 position-right">
+					<img src="img/4.jpg" class="img-responsive" alt="">
+					<div class="content-text3">
+						<a href="details.html"><h2>Trekking Shoes<i class="fa fa-long-arrow-right"></i></h2></a>
+					</div>
+				</article>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="productos-bottom">
+				<article class="col-xs-4 position-left1">
+					<img src="img/5.jpg" class="img-responsive" alt="">
+					<div class="content-text4">
+						<a href="details.html"><h2>Casual Glasses<i class="fa fa-long-arrow-right"></i></h2></a>
+					</div>
+				</article>
+				<article class="col-xs-4 position-middle">
+					<img src="img/6.jpg" class="img-responsive" alt="">
+					<div class="content-text5">
+						<h2>FRESH LOOK T-SHIRT</h2>
+						<div class="square">
+							<a href="details.html">SHOP NOW</a>
+						</div>
+					</div>
+				</article>
+				<article class="col-xs-4 position-right1">
+					<img src="img/7.jpg" class="img-responsive" alt="">
+					<div class="content-text4">
+						<a href="details.html"><h2>Elegant Watches<i class="fa fa-long-arrow-right"></i></h2></a>
+					</div>
+				</article>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- FINAL CONTENIDO -->
+<!-- SPECIAL OFFERS -->
+<section class="ofertas">
+	<div class="container">
+		<div class="tit">
+			<h2>Special Offers</h2>
+			<hr/>
+		</div>
+		<div class="row">
+			<article class="col-xs-3">
+				<a href="#">
+					<img src="img/8.jpg" class="img-responsive" alt="">
+					<div class="offer-text">
+						<h3>Lorem ipsum dolor</h3>
+						<p>ONLY $40.00</p>
+					</div>
+				</a>
+			</article>
+			<article class="col-xs-3">
+				<a href="#">
+					<img src="img/9.jpg" class="img-responsive" alt="">
+					<div class="offer-text">
+						<h3>Consectetur adipis</h3>
+						<p>ONLY $60.00</p>
+					</div>
+				</a>
+			</article>
+			<article class="col-xs-3">
+				<a href="#">
+					<img src="img/10.jpg" class="img-responsive" alt="">
+					<div class="offer-text">
+						<h3>Commodo consequat</h3>
+						<p>ONLY $14.20</p>
+					</div>
+				</a>
+			</article>
+			<article class="col-xs-3">
+				<a href="#">
+					<img src="img/11.jpg" class="img-responsive" alt="">
+					<div class="offer-text">
+						<h3>Voluptate velit</h3>
+						<p>ONLY $37.00</p>
+					</div>
+				</a>
+			</article>
+		</div>
+	</div>
+</section>
+<!-- FINAL SPECIAL OFFERS -->
+<!-- FOOTER -->
+<footer>
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 clearfix">
+					<div class="foot-tit pull-left">
+						<p>FOLLOW US ON</p>
+					</div>
+					<div class="social pull-left">
+						<ul class="clearfix">
+							<li><a href="#"><i class="fa fa-facebook"> </i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"> </i></a></li>
+							<li><a href="#"><i class="fa fa-google"> </i></a></li>
+							<li><a href="#"><i class="fa fa-instagram"> </i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"> </i></a></li>
+						</ul>
+						</div>
+					</li>
+				</div>
+				<div class="col-sm-6 clearfix">
+					<form class="form-inline pull-right">
+						<div class="form-group">
+						    <input type="email" class="form-control" placeholder="Enter your email to join our newsletter">
+						</div>
+						<button type="submit" class="btn">JOIN</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-xs-6">
+					<p>CUSTOMER CARE</p>
+					<ul>
+						<li><a href="#">Help Center</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">How To Buy</a></li>
+						<li><a href="#">Delivery</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2 col-xs-6">
+					<p>ABOUT US</p>
+					<ul>
+						<li><a href="#">Our Stories</a></li>
+						<li><a href="#">Press</a></li>
+						<li><a href="#">Career</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2 col-xs-4">
+					<p>MY ACCOUNT</p>
+					<ul>
+						<li><a href="register.html">Register</a></li>
+						<li><a href="#">My Cart</a></li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="#">Payment</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-5 col-xs-8">
+					<div class="pull-left stores">
+						<p>OUR STORES</p>
+					</div>
+					<div class="pull-left">
+						<div class="btn">
+							<a href="#">SOLO</a>
+						</div>
+					</div>
+					<div class="pull-left">
+						<div class="btn btn-default">
+							<a href="#">BOGOR</a>
+						</div>
+					</div>
+						<ul class="contacto">
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i>Jl. Haji Muhidin, Blok G no.69</li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>025-2839341</li>
+							<li><a href="mailto:info@example.com"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>info@sitename.com </a></li>	
+						</ul>
+				</div>
+				<div class="col-sm-12 copyright">
+					<p class="pull-left">© 2015 Gretongan</p>
+					<p class="pull-left"><a href="#">Terms & Condition</a></p> 
+					<p class="pull-left"><a href="#">Privacy Policy</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- FINAL FOOTER -->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
