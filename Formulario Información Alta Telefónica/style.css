@@ -1,0 +1,113 @@
+body {
+    background: #fbfbfb;
+    font-family: arial;
+    font-size: 14px;
+}
+
+h1 {
+    color: #7a137f;
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto 40px;
+}
+
+form{
+	max-width: 600px;
+	margin: auto;
+	margin-bottom: 60px;
+}
+
+fieldset {
+    border: 1px solid #7a137f;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 16px;
+    padding: 5px 15px;
+    font-weight: 100;
+    color: #ffffff;
+    background: #7a137f;
+    border-radius: 5px;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 100%;
+    color: #7a137f;
+    font-weight: 600;
+}
+.tipo-contratacion label{
+	display: inline;
+	color: #333333;
+	font-weight: normal;
+	margin-right: 15px;
+}
+
+.check label{
+	color: #333333;
+	font-weight: normal;
+	margin-right: 15px;
+	margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"], select {
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.form-buttons {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #7a137f;
+    padding-bottom: 20px;
+}
+
+.form-buttons button[type="submit"] {
+    background-color: #7a137f;
+    color: #ffffff;
+    border: 2px solid #7a137f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.form-buttons button[type="reset"] {
+    background-color: #dddddd;
+    color: #7a137f;
+    border: 2px solid #7a137f;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons button {
+    background-color: #1958cd;
+    color: #ffffff;
+    border: 2px solid #1958cd;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-buttons button:hover, .buttons button:hover{
+	background-color: #333333;
+	color: #ffffff;
+	border: 2px solid #333333;
+	cursor: pointer;
+}
+
+span{
+	font-size: 12px;
+	color: #6a6a6a;
+	font-weight: normal;
+}
