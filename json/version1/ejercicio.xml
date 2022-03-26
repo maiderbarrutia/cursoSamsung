@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<supermercados array="true">
+  <id number="true">1</id>
+  <nombre>Eroski</nombre>
+  <direccion>Calle Eroski, s/n</direccion>
+  <geolocalizacion>
+    <latitud number="true">37.856273</latitud>
+    <longitud number="true">-4.776992</longitud>
+  </geolocalizacion>
+  <productos>
+    <nombre>Tomates</nombre>
+    <oferta array="true">
+      <tipoOferta>3x2</tipoOferta>
+      <fechaInicio>20/03/2022</fechaInicio>
+      <fechaFinal>30/03/2022</fechaFinal>
+    </oferta>
+    <origen>España</origen>
+    <unidades number="true">3</unidades>
+    <unidadMedida>kg</unidadMedida>
+    <precio number="true">3.99</precio>
+    <productoAdquirido boolean="true">true</productoAdquirido>
+  </productos>
+  <productos>
+    <nombre>Lubina</nombre>
+    <oferta array="true">
+      <tipoOferta>10% descuento</tipoOferta>
+      <fechaInicio>20/03/2022</fechaInicio>
+      <fechaFinal>30/03/2022</fechaFinal>
+    </oferta>
+    <origen>España</origen>
+    <unidades number="true">1</unidades>
+    <unidadMedida>kg</unidadMedida>
+    <precio number="true">6.99</precio>
+    <productoAdquirido boolean="true">false</productoAdquirido>
+  </productos>
+  <ofertas>x</ofertas>
+</supermercados>
