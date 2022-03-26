@@ -1,0 +1,128 @@
+{
+  "supermercados": [
+    {
+      "id": 1,
+      "nombre": "Eroski",
+      "direccion": "Calle Eroski, s/n",
+      "geolocalizacion": {
+        "latitud": 37.856273,
+        "longitud": -4.776992
+      },
+      "productos": [
+        {
+          "nombre": "Tomates",
+          "oferta": [
+            {
+              "tipoOferta": "3x2",
+              "fechaInicio": "20/03/2022",
+              "fechaFinal": "30/03/2022"
+            }
+          ],
+          "origen": "España",
+          "unidades": 3,
+          "unidadMedida": "kg",
+          "precio": 3.99,
+          "productoAdquirido": true
+        },
+        {
+          "nombre": "Lubina",
+          "oferta": [
+            {
+              "tipoOferta": "10% descuento",
+              "fechaInicio": "20/03/2022",
+              "fechaFinal": "30/03/2022"
+            }
+          ],
+          "origen": "España",
+          "unidades": 1,
+          "unidadMedida": "kg",
+          "precio": 6.99,
+          "productoAdquirido": false
+        }
+      ],
+      "ofertas": "x"
+    },
+    {
+      "id": 2,
+      "nombre": "Mercadona",
+      "direccion": "Calle Mercadona, s/n",
+      "geolocalizacion": {
+        "latitud": 37.856273,
+        "longitud": -4.776992
+      },
+      "productos": [
+        {
+          "nombre": "Leche",
+          "oferta": [
+            {
+              "tipoOferta": "3x6€",
+              "fechaInicio": "20/03/2022",
+              "fechaFinal": "30/03/2022"
+            }
+          ],
+          "origen": "Francia",
+          "unidades": 3,
+          "unidadMedida": "litros",
+          "precio": 1.5,
+          "productoAdquirido": true
+        },
+        {
+          "nombre": "Aceite de Oliva",
+          "oferta": [
+            {
+              "tipoOferta": "3x2",
+              "fechaInicio": null,
+              "fechaFinal": null
+            }
+          ],
+          "origen": "España",
+          "unidades": 3,
+          "unidadMedida": "litros",
+          "precio": 2.95,
+          "productoAdquirido": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Lidl",
+      "direccion": "Calle Lidl, 3",
+      "geolocalizacion": {
+        "latitud": 37.856273,
+        "longitud": -4.776992
+      },
+      "productos": [
+        {
+          "nombre": "Cacahuetes",
+          "oferta": [
+            {
+              "tipoOferta": "3x2",
+              "fechaInicio": "20/03/2022",
+              "fechaFinal": "30/03/2022"
+            }
+          ],
+          "origen": "España",
+          "unidades": 3,
+          "unidadMedida": "gr",
+          "precio": 3.99,
+          "productoAdquirido": true
+        },
+        {
+          "nombre": "Galletas",
+          "oferta": [
+            {
+              "tipoOferta": "20% descuento",
+              "fechaInicio": "20/03/2022",
+              "fechaFinal": "30/03/2022"
+            }
+          ],
+          "origen": "España",
+          "unidades": 3,
+          "unidadMedida": "gr",
+          "precio": 2,
+          "productoAdquirido": true
+        }
+      ]
+    }
+  ]
+}
