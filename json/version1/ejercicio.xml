@@ -1,37 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<supermercados array="true">
-  <id number="true">1</id>
-  <nombre>Eroski</nombre>
-  <direccion>Calle Eroski, s/n</direccion>
-  <geolocalizacion>
-    <latitud number="true">37.856273</latitud>
-    <longitud number="true">-4.776992</longitud>
-  </geolocalizacion>
-  <productos>
-    <nombre>Tomates</nombre>
-    <oferta array="true">
-      <tipoOferta>3x2</tipoOferta>
-      <fechaInicio>20/03/2022</fechaInicio>
-      <fechaFinal>30/03/2022</fechaFinal>
-    </oferta>
-    <origen>España</origen>
-    <unidades number="true">3</unidades>
-    <unidadMedida>kg</unidadMedida>
-    <precio number="true">3.99</precio>
-    <productoAdquirido boolean="true">true</productoAdquirido>
-  </productos>
-  <productos>
-    <nombre>Lubina</nombre>
-    <oferta array="true">
-      <tipoOferta>10% descuento</tipoOferta>
-      <fechaInicio>20/03/2022</fechaInicio>
-      <fechaFinal>30/03/2022</fechaFinal>
-    </oferta>
-    <origen>España</origen>
-    <unidades number="true">1</unidades>
-    <unidadMedida>kg</unidadMedida>
-    <precio number="true">6.99</precio>
-    <productoAdquirido boolean="true">false</productoAdquirido>
-  </productos>
-  <ofertas>x</ofertas>
-</supermercados>
+  <supermercados>
+  <supermercado>
+    <id>1</id>
+    <nombre>Eroski</nombre>
+    <direccion>Calle Eroski, s/n</direccion>
+    <geolocalizacion>
+      <latitud>37.856273</latitud>
+      <longitud>-4.776992</longitud>
+    </geolocalizacion>
+    <productos>
+      <nombre>Tomates</nombre>
+      <oferta>
+        <tipoOferta>3x2</tipoOferta>
+        <fechaInicio>20/03/2022</fechaInicio>
+        <fechaFinal>30/03/2022</fechaFinal>
+      </oferta>
+      <origen>España</origen>
+      <unidades>3</unidades>
+      <unidadMedida>kg</unidadMedida>
+      <precio>3.99</precio>
+      <productoAdquirido>true</productoAdquirido>
+    </productos>
+    <productos>
+      <nombre>Lubina</nombre>
+      <oferta>
+        <tipoOferta>10% descuento</tipoOferta>
+        <fechaInicio>20/03/2022</fechaInicio>
+        <fechaFinal>30/03/2022</fechaFinal>
+      </oferta>
+      <origen>España</origen>
+      <unidades>1</unidades>
+      <unidadMedida>kg</unidadMedida>
+      <precio>6.99</precio>
+      <productoAdquirido>false</productoAdquirido>
+    </productos>
+  </supermercado>
+  <supermercado>
+    <id>2</id>
+    <nombre>Mercadona</nombre>
+    <direccion>Calle Mercadona, s/n</direccion>
+    <geolocalizacion>
+      <latitud>37.856273</latitud>
+      <longitud>-4.776992</longitud>
+    </geolocalizacion>
+    <productos>
+      <nombre>Leche</nombre>
+      <oferta>
+        <tipoOferta>3x6€</tipoOferta>
+        <fechaInicio>20/03/2022</fechaInicio>
+        <fechaFinal>30/03/2022</fechaFinal>
+      </oferta>
+      <origen>Francia</origen>
+      <unidades>3</unidades>
+      <unidadMedida>litros</unidadMedida>
+      <precio>1.5</precio>
+      <productoAdquirido>true</productoAdquirido>
+    </productos>
+    <productos>
+      <nombre>Aceite de Oliva</nombre>
+      <oferta>
+        <tipoOferta></tipoOferta>
+        <fechaInicio></fechaInicio>
+        <fechaFinal></fechaFinal>
+      </oferta>
+      <origen>España</origen>
+      <unidades>3</unidades>
+      <unidadMedida>litros</unidadMedida>
+      <precio>2.95</precio>
+      <productoAdquirido>true</productoAdquirido>
+    </productos>
+  </supermercado>
+  <supermercado>
+    <id>3</id>
+    <nombre>Lidl</nombre>
+    <direccion>Calle Lidl, 3</direccion>
+    <geolocalizacion>
+      <latitud>37.856273</latitud>
+      <longitud>-4.776992</longitud>
+    </geolocalizacion>
+    <productos>
+      <nombre>Cacahuetes</nombre>
+      <oferta>
+        <tipoOferta>3x2</tipoOferta>
+        <fechaInicio>20/03/2022</fechaInicio>
+        <fechaFinal>30/03/2022</fechaFinal>
+      </oferta>
+      <origen>España</origen>
+      <unidades>3</unidades>
+      <unidadMedida>gr</unidadMedida>
+      <precio>3.99</precio>
+      <productoAdquirido>true</productoAdquirido>
+    </productos>
+    <productos>
+      <nombre>Galletas</nombre>
+      <oferta>
+        <tipoOferta>20% descuento</tipoOferta>
+        <fechaInicio>20/03/2022</fechaInicio>
+        <fechaFinal>30/03/2022</fechaFinal>
+      </oferta>
+      <origen>España</origen>
+      <unidades>3</unidades>
+      <unidadMedida>gr</unidadMedida>
+      <precio>2</precio>
+      <productoAdquirido>true</productoAdquirido>
+    </productos>
+    </supermercado>
+  </supermercados>

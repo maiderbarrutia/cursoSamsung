@@ -6,48 +6,9 @@
     <title>Ejercicio JSON</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <style>
-      html {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      h1 {
-        text-align: center;
-        color: blue;
-      }
-      .productTitle {
-        background-color: white;
-        margin-top: 20px;
-        display: inline-block;
-      }
-      .tabla {
-        width: 100%;
-        max-width: 800px;
-        margin: auto;
-        text-align: left;
-      }
-      table {
-        width: 100%;
-      }
-      thead td,
-      thead th {
-        background: aqua;
-        padding: 10px;
-      }
-      tbody td,
-      tbody th {
-        padding: 10px;
-        background: deepskyblue;
-      }
-      h3 {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- <div id="results">
-
-        </div> -->
     <h1>Información supermercados</h1>
     <div class="tabla">
       <h2>Datos del supermercado:</h2>
@@ -82,54 +43,6 @@
       </table>
     </div>
 
-    <script>
-      const resultados = document.querySelector("#results");
-      const resultadosProductos = document.querySelector("#productResults");
-      fetch("ejercicio.json")
-        .then((response) => response.json())
-        .then((data) => {
-          tablaSupermercados(data);
-          tablaProductos(data);
-        });
-
-      function tablaSupermercados(data) {
-        resultados.innerHTML = "";
-        data.supermercados.map((valor) => {
-          resultados.innerHTML += `
-            <tr>
-                <th>${valor.id}</th>
-                <td>${valor.nombre}</td>
-                <td>${valor.direccion}</td>
-                <td>
-                    Latitud: ${valor.geolocalizacion.latitud}
-                    Longitud: ${valor.geolocalizacion.longitud}
-                </td>
-            </tr>
-          `;
-        });
-      }
-      function tablaProductos(data) {
-        resultadosProductos.innerHTML = "";
-        for (let valor of data.supermercados) {
-          for (const producto of valor.productos) {
-            resultadosProductos.innerHTML += `
-              
-              <tbody>
-                  <tr>
-                      <th>${valor.nombre}</th>
-                      <td>${producto.nombre}</td>
-                      <td>${producto.origen}</td>
-                      <td>${producto.unidades}</td>
-                      <td>${producto.unidadMedida}</td>
-                      <td>${producto.precio} €</td>
-                      <td>${producto.productoAdquirido}</td>
-                  </tr>
-
-              </tbody>
-            `;
-          }
-        }
-      }
-    </script>
+    <script src="./json.js" async defer></script>
   </body>
 </html>

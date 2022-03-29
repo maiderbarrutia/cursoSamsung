@@ -70,7 +70,7 @@
           "nombre": "Aceite de Oliva",
           "oferta": [
             {
-              "tipoOferta": "3x2",
+              "tipoOferta": null,
               "fechaInicio": null,
               "fechaFinal": null
             }
