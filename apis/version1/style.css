@@ -6,7 +6,7 @@ header {
   margin-top: 40px;
 }
 h1 {
-  color: rebeccapurple;
+  color: #651cae;
   font-size: 30px;
 }
 main {
@@ -21,18 +21,54 @@ main {
 #videoUpload {
   margin: 20px auto;
 }
-#messages .error {
-  color: white;
+#errorMessage .error {
+  color: #fff;
   font-size: 12px;
   padding: 7px;
   border: 1px solid red;
   background: red;
   margin: 0;
 }
-#messages .loading {
-  animation: loading 0.5s infinite alternate;
+.videoContent {
+  position: relative;
+  line-height: 0;
 }
-@keyframes loading {
+#loadingMessage {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+}
+#loadingMessage .loading {
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#loadingMessage .loading p {
+  animation: loadingText 0.5s infinite alternate;
+  color: #fff;
+}
+.loader {
+  border: 5px solid #fff;
+  border-top: 5px solid #651cae;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: loaderIcon 2s linear infinite;
+}
+
+@keyframes loaderIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingText {
   0% {
     opacity: 0.8;
   }
@@ -45,7 +81,7 @@ main {
   background: #000;
 }
 .buttons {
-  background: rebeccapurple;
+  background: #651cae;
   display: flex;
   justify-content: center;
   display: none;

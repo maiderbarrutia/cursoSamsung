@@ -13,23 +13,23 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-      <header><h1>Reproductor de video</h1></header>
-      <main>
-        <div class="allVideo">
-          <input id="videoUpload" type="file" name="files[]" onchange="selectVideo(event)" />
-            <!-- <div class="videoContent"></div> -->
-            <div id="messages"></div>
-            <video id="video"></video>
-
-            <div class="buttons">
-                <button id="play"><i class="fas fa-play"></i></button>
-                <button id="pause">
-                <i class="fas fa-pause"></i></i>
-                </button>
-                <button id="upVolume"><i class="fas fa-volume-up"></i></button>
-                <button id="downVolume"><i class="fas fa-volume-down"></i></button>
-            </div>
+    <header><h1>Reproductor de video</h1></header>
+    <main>
+      <div class="allVideo">
+        <input id="videoUpload" type="file" name="videoUpload" />
+        <div id="errorMessage"></div>
+        <div class="videoContent">
+          <div id="loadingMessage"></div>
+          <video id="video"></video>
         </div>
+
+        <div class="buttons">
+          <button id="play"><i class="fas fa-play"></i></button>
+          <button id="pause"><i class="fas fa-pause"></i></button>
+          <button id="upVolume"><i class="fas fa-volume-up"></i></button>
+          <button id="downVolume"><i class="fas fa-volume-down"></i></button>
+        </div>
+      </div>
     </main>
 
     <script src="./video.js" async defer></script>
