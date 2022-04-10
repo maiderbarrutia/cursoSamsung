@@ -1,0 +1,110 @@
+<!-- <p>form-person works!</p>
+<label>
+  Color:
+  <input type="text" [formControl]="nombre" />
+</label>
+<p>Valor: {{ nombre.value }}</p> -->
+
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi" [ngStyle]="{ 'background-color': '#fff' }" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</form> -->
+<h1>Listado de personas</h1>
+<form class="person-form" [formGroup]="form">
+  <legend>Añade una persona</legend>
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Nombre:</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="nombre"
+      value="nombre"
+      formControlName="nombre"
+      minlength="4"
+    />
+    <mat-error *ngIf=""> </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Apellidos:</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="apellidos"
+      value="apellidos"
+      formControlName="apellidos"
+      minlength="4"
+    />
+    <mat-error *ngIf=""> </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>State</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <!-- <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option> -->
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-button
+    type="submit"
+    (click)="addPerson()"
+    color="primary"
+    [disabled]="form.invalid"
+  >
+    Añadir persona
+  </button>
+  <button mat-button type="submit" color="primary" [disabled]="form.invalid">
+    Enviar
+  </button>
+</form>
+
+<!-- <mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let person of people"
+    >Nombre: {{ person.nombre }} Apellidos:
+    {{ person.apellidos }}</mat-list-item
+  >
+</mat-list> -->
+
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let person of people">
+    <mat-card class="">
+      <mat-card-title
+        >Nombre: {{ person.nombre }} {{ person.apellidos }}</mat-card-title
+      >
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-content>
+        <p>This card has divider and indeterminate progress as footer</p>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <button
+          mat-button
+          type="submit"
+          color="primary"
+          (click)="modifyPerson()"
+        >
+          Editar
+        </button>
+        <button
+          mat-button
+          type="submit"
+          color="primary"
+          (click)="deletePerson()"
+        >
+          Borrar
+        </button>
+      </mat-card-actions>
+      <mat-card-footer> </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <ul *ngFor="let person of form.value">
+  <li>{{ person.value.nombre }}</li>
+</ul> -->
