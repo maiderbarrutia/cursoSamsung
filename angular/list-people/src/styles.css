@@ -32,3 +32,6 @@ legend {
 .mat-list-item {
   background: purple;
 }
+#updated-buttons{
+  display: none;
+}

@@ -1,9 +1,4 @@
-<!-- <p>form-person works!</p>
-<label>
-  Color:
-  <input type="text" [formControl]="nombre" />
-</label>
-<p>Valor: {{ nombre.value }}</p> -->
+
 
 <!-- <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
@@ -29,7 +24,7 @@
       formControlName="nombre"
       minlength="4"
     />
-    <mat-error *ngIf=""> </mat-error>
+    <mat-error *ngIf="" [ngStyle]="{ 'color': 'red' }"> </mat-error>
   </mat-form-field>
   <mat-form-field class="form-field" appearance="fill">
     <mat-label>Apellidos:</mat-label>
@@ -39,17 +34,20 @@
       placeholder="apellidos"
       value="apellidos"
       formControlName="apellidos"
-      minlength="4"
+      minlength="4" id="apellidos" name="apellidos"
     />
-    <mat-error *ngIf=""> </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>State</mat-label>
-    <mat-select>
-      <mat-option>None</mat-option>
-      <!-- <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option> -->
+    <mat-label>Género</mat-label>
+    <mat-select formControlName="genero">
+      <mat-option>Selecciona un género</mat-option>
+      <!-- En mat-option deberia poner [value]="i" pero luego al pintarlo me pinta el index en vez de el contenido -->
+      <mat-option *ngFor="let gender of genderSelect();let i=index; " [value]="gender">{{gender}}</mat-option>
+      
     </mat-select>
+
   </mat-form-field>
+  <div id="form-buttons">
   <button
     mat-button
     type="submit"
@@ -59,17 +57,21 @@
   >
     Añadir persona
   </button>
+
   <button mat-button type="submit" color="primary" [disabled]="form.invalid">
     Enviar
   </button>
-</form>
+</div>
+<div id="updated-buttons">
+  <button mat-button type="submit" color="primary" (click)="updatePerson()">
+    Modificar
+  </button>
 
-<!-- <mat-list role="list">
-  <mat-list-item role="listitem" *ngFor="let person of people"
-    >Nombre: {{ person.nombre }} Apellidos:
-    {{ person.apellidos }}</mat-list-item
-  >
-</mat-list> -->
+  <button mat-button type="submit" color="primary" (click)="cancelUpdatePerson()">
+    Cancelar
+  </button>
+</div>
+</form>
 
 <mat-grid-list cols="3" rowHeight="2:1">
   <mat-grid-tile *ngFor="let person of people">
@@ -77,9 +79,9 @@
       <mat-card-title
         >Nombre: {{ person.nombre }} {{ person.apellidos }}</mat-card-title
       >
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-subtitle>Género: {{ person.genero }}</mat-card-subtitle>
       <mat-card-content>
-        <p>This card has divider and indeterminate progress as footer</p>
+        <p>Contenido</p>
       </mat-card-content>
       <mat-divider inset></mat-divider>
       <mat-card-actions>
@@ -87,7 +89,7 @@
           mat-button
           type="submit"
           color="primary"
-          (click)="modifyPerson()"
+          (click)="editPerson(person)"
         >
           Editar
         </button>
@@ -97,14 +99,10 @@
           color="primary"
           (click)="deletePerson()"
         >
-          Borrar
+          Eliminar
         </button>
       </mat-card-actions>
       <mat-card-footer> </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-<!-- <ul *ngFor="let person of form.value">
-  <li>{{ person.value.nombre }}</li>
-</ul> -->

@@ -1,4 +1,4 @@
-export enum sexSelect {
+export enum genderSelect {
   hombre = 'Hombre',
   mujer = 'Mujer',
   otro = 'Otro',
@@ -13,17 +13,17 @@ export class Person {
   // dni: string;
   // cumpleanios: string;
   // colorFavorito: colorType;
-  // sexo: sexSelect;
+   genero: genderSelect;
   // notas: string;
 
   constructor(
     nombre: string,
-    apellidos: string
+    apellidos: string,
     // edad: number,
     // dni: string,
     // cumpleanios: string,
     // colorFavorito: colorType,
-    // sexo: sexSelect,
+    genero: genderSelect,
     // notas: string
   ) {
     this.nombre = nombre;
@@ -32,7 +32,7 @@ export class Person {
     // this.dni = dni;
     // this.cumpleanios = cumpleanios;
     // this.colorFavorito = colorFavorito;
-    // this.sexo = sexo;
+    this.genero = genero;
     // this.notas = notas;
   }
 }
