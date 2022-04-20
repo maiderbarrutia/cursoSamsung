@@ -13,7 +13,7 @@ export class Person {
   // dni: string;
   // cumpleanios: string;
   // colorFavorito: colorType;
-   genero: genderSelect;
+  genero: genderSelect;
   // notas: string;
 
   constructor(
@@ -23,7 +23,7 @@ export class Person {
     // dni: string,
     // cumpleanios: string,
     // colorFavorito: colorType,
-    genero: genderSelect,
+    genero: genderSelect
     // notas: string
   ) {
     this.nombre = nombre;

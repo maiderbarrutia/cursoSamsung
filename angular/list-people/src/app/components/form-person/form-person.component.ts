@@ -6,6 +6,7 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
+import { TileStyler } from '@angular/material/grid-list/tile-styler';
 
 @Component({
   selector: 'form-person',
@@ -13,10 +14,15 @@ import {
   styleUrls: ['./form-person.component.css'],
 })
 export class FormPersonComponent implements OnInit {
+  selectedPerson: number;
   people: Person[];
+  id: number;
   form: FormGroup;
   constructor() {
-    this.people = [];this.form = new FormGroup({
+    this.selectedPerson = -1;
+    this.id = 0;
+    this.people = [];
+    this.form = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -29,11 +35,11 @@ export class FormPersonComponent implements OnInit {
     });
   }
   //Añadir en el select del formulario las opciones del enum llamado genderSelect
-  genderSelect():Array<string> {
-    const genderValue =Object.values(genderSelect);
+  genderSelect(): Array<string> {
+    const genderValue = Object.values(genderSelect);
     return genderValue;
   }
-  
+
   ngOnInit(): void {}
 
   //Añadir persona y visualizarlas en una lista
@@ -41,37 +47,53 @@ export class FormPersonComponent implements OnInit {
     let newPerson = this.form.value; //Coger los valores que se añaden en el formulario
     this.people.push(newPerson); //Añadir esos valores(mediante objetos) al array llamado people
     this.form.reset(); //Vaciar los datos del formulario después de añadir la nueva persona al array
-    console.log(newPerson); //Para ver un console con todas las opciones de Person que se generan despues de añadir por el formulario
   }
 
   //Hacer que los registros de la persona seleccionada se puedan modificar
-  editPerson(selectedPerson:Person) {
-   this.form.setValue(selectedPerson);
+  editPerson(selectedPerson: Person) {
+    this.form.setValue(selectedPerson);
   }
   //Guardar los datos modificados
-  updatePerson(){
-    /*Utilizar observables*/
-  }
-  //Cancelar los datos modificados
-  cancelUpdatePerson(){
+  updatePerson(selectedPerson: number) {
+    // console.log(selectedPerson);
+    this.people[selectedPerson] = this.form.value;
+    // console.log(this.people[selectedPerson])
+    // console.log("form value" + this.form.value)
+
+    //console.log(this.people[selectedPerson])
+    // console.log(this.form.value)
+    //console.log(selectedPerson)
+    // for ( let i=0; i<this.people.length; i++) {
+    // selectedPerson=+ i;
+    // }
+    // console.log(selectedPerson)
+    //   for ( let i=0; i<this.people.length; i++) {
+    //     console.log( 'The ' + i + 'value is ' + this.people[i] );
+
+    //      //this.people[i] = selectedPerson
+
+    //     // }
+    //  }
+    //for (let i = 0; i < this.people.length; i++) {
+    //let personId = this.people.indexOf(selectedPerson);
+
+    // var personId =+ i;
+    // personId = this.people[i];
+
+    //console.log(newPerson)
+    //}
+
     this.form.reset();
   }
-    
+
+  //Cancelar los datos modificados
+  cancelUpdatePerson() {
+    this.form.reset();
+  }
+
   //Borrar los registros de la persona
-  deletePerson() {
-    // this.people.splice(event, 1)
-    // const index: number = this.people.indexOf(event);
-    // if (index !== -1) {
-    //     this.people.splice(index, 1);
-    // } 
-    // const selectedCard =event.currentTarget;
-    // console.log(selectedCard);
-    // this.people.splice(selectedCard);
-  //   this.people = this.people.filter(function(event) {
-     
-  // })
-    // const selectedCard = parseInt(event);
-    // this.people.splice(selectedCard, 1);
+  deletePerson(person: any, i: number) {
+    person.splice(i, 1);
   }
 
   //Enviar formulario
