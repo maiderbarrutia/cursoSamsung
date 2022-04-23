@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Person, genderSelect, colorType } from 'src/app/classes/person';
+// import { DatePipe } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -15,12 +16,12 @@ import { TileStyler } from '@angular/material/grid-list/tile-styler';
 })
 export class FormPersonComponent implements OnInit {
   selectedPerson: number;
+  @ViewChild('updatedButtons') updatedButtons!: ElementRef;
+  @ViewChild('formButtons') formButtons!: ElementRef;
   people: Person[];
-  id: number;
   form: FormGroup;
   constructor() {
     this.selectedPerson = -1;
-    this.id = 0;
     this.people = [];
     this.form = new FormGroup({
       nombre: new FormControl('', [
@@ -28,6 +29,17 @@ export class FormPersonComponent implements OnInit {
         Validators.minLength(3),
       ]),
       apellidos: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      edad: new FormControl('', [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(125),
+      ]),
+      dni: new FormControl('', [Validators.required, Validators.minLength(9)]),
+      cumpleanios: new FormControl('', [Validators.required]),
+      colorFavorito: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
@@ -52,11 +64,19 @@ export class FormPersonComponent implements OnInit {
   //Hacer que los registros de la persona seleccionada se puedan modificar
   editPerson(selectedPerson: Person) {
     this.form.setValue(selectedPerson);
+    this.updatedButtons.nativeElement.style.display = 'inline-block';
+    this.formButtons.nativeElement.style.display = 'none';
   }
   //Guardar los datos modificados
   updatePerson(selectedPerson: number) {
-    // console.log(selectedPerson);
+    //console.log(this.form.value); //valor inicial
+    //console.log(this.people); //valor cambiado
+    // this.people = this.form.value;
     this.people[selectedPerson] = this.form.value;
+    console.log(this.people[selectedPerson]);
+    //this.form.valueChanges.subscribe((value) => this.editPerson(value));
+
+    //this.people[selectedPerson] = this.form.value;
     // console.log(this.people[selectedPerson])
     // console.log("form value" + this.form.value)
 
@@ -82,13 +102,16 @@ export class FormPersonComponent implements OnInit {
 
     //console.log(newPerson)
     //}
-
+    this.updatedButtons.nativeElement.style.display = 'none';
+    this.formButtons.nativeElement.style.display = 'inline-block';
     this.form.reset();
   }
 
   //Cancelar los datos modificados
   cancelUpdatePerson() {
     this.form.reset();
+    this.updatedButtons.nativeElement.style.display = 'none';
+    this.formButtons.nativeElement.style.display = 'inline-block';
   }
 
   //Borrar los registros de la persona
