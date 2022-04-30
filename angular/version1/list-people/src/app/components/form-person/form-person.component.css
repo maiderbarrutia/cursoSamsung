@@ -22,6 +22,9 @@ legend {
 .mat-list-item {
   background: purple;
 }
-#updated-buttons {
+/* #updated-buttons {
+  display: none;
+} */
+#updateButton {
   display: none;
 }

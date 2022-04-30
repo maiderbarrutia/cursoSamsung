@@ -14,8 +14,10 @@ import {
   styleUrls: ['./form-person.component.css'],
 })
 export class FormPersonComponent implements OnInit {
-  @ViewChild('updatedButtons') updatedButtons!: ElementRef;
-  @ViewChild('formButtons') formButtons!: ElementRef;
+  @ViewChild('updateButton') updateButton!: ElementRef;
+  @ViewChild('editButton') editButton!: ElementRef;
+  // @ViewChild('updatedButtons') updatedButtons!: ElementRef;
+  // @ViewChild('formButtons') formButtons!: ElementRef;
   people: Person[];
   form: FormGroup;
   constructor() {
@@ -61,38 +63,34 @@ export class FormPersonComponent implements OnInit {
   //Hacer que los registros de la persona seleccionada se puedan modificar
   editPerson(selectedPerson: Person) {
     this.form.setValue(selectedPerson);
-    // console.log(selectedPerson);
-    // console.log(this.form.value);
-    // selectedPerson = this.form.value;
-    this.updatedButtons.nativeElement.style.display = 'inline-block';
-    this.formButtons.nativeElement.style.display = 'none';
-  }
-  //Guardar los datos modificados
-  updatePerson() {
-    // console.log(person);
-    // console.log(this.form.value);
-    // person = this.form.value;
-    //this.people = this.form.value;
 
-    this.updatedButtons.nativeElement.style.display = 'none';
-    this.formButtons.nativeElement.style.display = 'inline-block';
+    this.editButton.nativeElement.style.display = 'none';
+    this.updateButton.nativeElement.style.display = 'inline-block';
+  }
+
+  //Guardar los datos modificados
+  updatePerson(selectedPerson: Person) {
+    selectedPerson.nombre = this.form.controls['nombre'].value;
+    selectedPerson.apellidos = this.form.controls['apellidos'].value;
+    selectedPerson.edad = this.form.controls['edad'].value;
+    selectedPerson.dni = this.form.controls['dni'].value;
+    selectedPerson.cumpleanios = this.form.controls['cumpleanios'].value;
+    selectedPerson.colorFavorito = this.form.controls['colorFavorito'].value;
+    selectedPerson.genero = this.form.controls['genero'].value;
+
+    this.editButton.nativeElement.style.display = 'inline-block';
+    this.updateButton.nativeElement.style.display = 'none';
+
     this.form.reset();
   }
 
   //Cancelar los datos modificados
   cancelUpdatePerson() {
     this.form.reset();
-    this.updatedButtons.nativeElement.style.display = 'none';
-    this.formButtons.nativeElement.style.display = 'inline-block';
   }
 
   //Borrar los registros de la persona
   deletePerson(person: any, i: number) {
     person.splice(i, 1);
   }
-
-  //Enviar formulario
-  // sendForm() {
-  //   alert(`Enviado! ${this.form.value.nombre}`);
-  // }
 }
