@@ -40,6 +40,7 @@
       formControlName="apellidos"
       minlength="3"
       required
+      #apellidos
     />
     <mat-error
       [ngStyle]="{ color: 'red' }"
@@ -67,6 +68,7 @@
       min="0"
       max="125"
       required
+      #edad
     />
     <mat-error
       [ngStyle]="{ color: 'red' }"
@@ -97,6 +99,7 @@
       formControlName="dni"
       maxlength="9"
       required
+      #dni
     />
     <mat-error
       [ngStyle]="{ color: 'red' }"
@@ -123,6 +126,7 @@
       formControlName="cumpleanios"
       minlength="3"
       required
+      #cumpleanios
     />
     <mat-error
       [ngStyle]="{ color: 'red' }"
@@ -146,6 +150,7 @@
       formControlName="colorFavorito"
       minlength="3"
       required
+      #colorFavorito
     />
     <mat-error
       [ngStyle]="{ color: 'red' }"
@@ -166,14 +171,13 @@
   <!-- Género -->
   <mat-form-field appearance="fill">
     <mat-label>Género</mat-label>
-    <mat-select formControlName="genero" required>
+    <mat-select formControlName="genero" required #genero>
       <mat-option>Selecciona un género</mat-option>
       <!-- En mat-option deberia poner [value]="i" pero luego al pintarlo me pinta el index en vez de el contenido -->
       <mat-option
-        *ngFor="let gender of genderSelect(); let i = index"
-        [attr.data-index]="i"
-        [value]="gender"
-        >{{ gender }}</mat-option
+        *ngFor="let genderName of genderSelect(); let i = index"
+        [value]="genderName"
+        >{{ genderName }}</mat-option
       >
     </mat-select>
     <mat-error
@@ -189,7 +193,7 @@
     </mat-error>
   </mat-form-field>
   <!-- Botones -->
-  <div id="form-buttons" #formButtons>
+  <div id="formButtons" #formButtons>
     <button
       mat-button
       type="submit"
@@ -199,85 +203,64 @@
     >
       Añadir persona
     </button>
-  </div>
-  <div id="updated-buttons">
-    <!-- <button
-      mat-button
-      type="submit"
-      color="primary"
-      [disabled]="!form.valid"
-      (click)="updatePerson()"
-    >
-      Modificar
-    </button> -->
 
     <button
       mat-button
       type="submit"
       color="primary"
-      [disabled]="!form.valid"
       (click)="cancelUpdatePerson()"
     >
-      Cancelar
+      Limpiar formulario
     </button>
   </div>
 </form>
+
 <!-- Lista de personas -->
-<mat-grid-list cols="3">
-  <mat-grid-tile #peopleCard *ngFor="let person of people; let i = index">
-    <mat-card class="">
-      <mat-card-title>
-        Nombre: {{ person.nombre }} Apellidos:
-        {{ person.apellidos }}
-      </mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-      <mat-card-content>
-        <p>Edad: {{ person.edad }}</p>
-        <p>DNI: {{ person.dni }}</p>
-        <p>Cumpleaños: {{ person.cumpleanios }}</p>
-        <p>Color favorito: {{ person.colorFavorito }}</p>
-        <p>Género: {{ person.genero }}</p>
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-      <mat-card-actions>
-        <div id="editButton" #editButton>
-          <button
-            mat-button
-            type="submit"
-            color="primary"
-            [disabled]="!form.valid"
-            (click)="editPerson(person)"
-          >
-            Editar
-          </button>
-        </div>
-        <div id="updateButton" #updateButton>
-          <button
-            mat-button
-            type="submit"
-            color="primary"
-            [disabled]="!form.valid"
-            (click)="updatePerson(person)"
-          >
-            Modificar
-          </button>
-        </div>
+<div class="cardList">
+  <mat-card class="" #peopleCard *ngFor="let person of people; let i = index">
+    <mat-card-title>
+      <p>{{ person.nombre }}</p>
+      <p>{{ person.apellidos }}</p>
+    </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+    <mat-card-content>
+      <p><span>Edad:</span> {{ person.edad }}</p>
+      <p><span>DNI:</span> {{ person.dni }}</p>
+      <p><span>Cumpleaños:</span> {{ person.cumpleanios }}</p>
+      <p><span>Color favorito:</span> {{ person.colorFavorito }}</p>
+      <p><span>Género:</span> {{ person.genero }}</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <div id="editButton" #editButton>
         <button
           mat-button
           type="submit"
           color="primary"
-          (click)="deletePerson(people, i)"
+          (click)="editPerson(person, i)"
         >
-          <!-- <button
+          Editar
+        </button>
+      </div>
+      <div id="updateButton" #updateButton>
+        <button
           mat-button
           type="submit"
           color="primary"
-          (click)="(click)="people.splice(i, 1)""
-        > -->
-          Eliminar
+          (click)="updatePerson(person, i)"
+        >
+          Modificar
         </button>
-      </mat-card-actions>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+      </div>
+      <button
+        mat-button
+        type="submit"
+        color="primary"
+        (click)="deletePerson(people, i)"
+      >
+        Eliminar
+      </button>
+    </mat-card-actions>
+    <mat-card-footer> </mat-card-footer>
+  </mat-card>
+</div>

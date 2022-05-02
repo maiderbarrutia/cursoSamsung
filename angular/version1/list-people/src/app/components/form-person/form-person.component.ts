@@ -1,12 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Person, genderSelect } from 'src/app/classes/person';
-// import { DatePipe } from '@angular/common';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'form-person',
@@ -14,10 +8,7 @@ import {
   styleUrls: ['./form-person.component.css'],
 })
 export class FormPersonComponent implements OnInit {
-  @ViewChild('updateButton') updateButton!: ElementRef;
-  @ViewChild('editButton') editButton!: ElementRef;
-  // @ViewChild('updatedButtons') updatedButtons!: ElementRef;
-  // @ViewChild('formButtons') formButtons!: ElementRef;
+  @ViewChild('formButtons') formButtons!: ElementRef;
   people: Person[];
   form: FormGroup;
   constructor() {
@@ -47,29 +38,25 @@ export class FormPersonComponent implements OnInit {
   }
   //Añadir en el select del formulario las opciones del enum llamado genderSelect
   genderSelect(): Array<string> {
-    const genderValue = Object.values(genderSelect);
-    return genderValue;
+    const genderName = Object.values(genderSelect);
+    return genderName;
   }
 
-  ngOnInit(): void {}
-
-  //Añadir persona y visualizarlas en una lista
+  //Añadir persona y visualizarlas en una lista (Cards)
   addPerson() {
-    let newPerson = this.form.value; //Coger los valores que se añaden en el formulario
-    this.people.push(newPerson); //Añadir esos valores(mediante objetos) al array llamado people
-    this.form.reset(); //Vaciar los datos del formulario después de añadir la nueva persona al array
+    let newPerson = this.form.value;
+    this.people.push(newPerson);
+    this.form.reset();
   }
 
   //Hacer que los registros de la persona seleccionada se puedan modificar
-  editPerson(selectedPerson: Person) {
+  editPerson(selectedPerson: Person, i: number) {
     this.form.setValue(selectedPerson);
-
-    this.editButton.nativeElement.style.display = 'none';
-    this.updateButton.nativeElement.style.display = 'inline-block';
+    this.formButtons.nativeElement.style.display = 'none';
   }
 
   //Guardar los datos modificados
-  updatePerson(selectedPerson: Person) {
+  updatePerson(selectedPerson: Person, i: number) {
     selectedPerson.nombre = this.form.controls['nombre'].value;
     selectedPerson.apellidos = this.form.controls['apellidos'].value;
     selectedPerson.edad = this.form.controls['edad'].value;
@@ -78,14 +65,8 @@ export class FormPersonComponent implements OnInit {
     selectedPerson.colorFavorito = this.form.controls['colorFavorito'].value;
     selectedPerson.genero = this.form.controls['genero'].value;
 
-    this.editButton.nativeElement.style.display = 'inline-block';
-    this.updateButton.nativeElement.style.display = 'none';
+    this.formButtons.nativeElement.style.display = 'flex';
 
-    this.form.reset();
-  }
-
-  //Cancelar los datos modificados
-  cancelUpdatePerson() {
     this.form.reset();
   }
 
@@ -93,4 +74,11 @@ export class FormPersonComponent implements OnInit {
   deletePerson(person: any, i: number) {
     person.splice(i, 1);
   }
+
+  //Limpiar datos
+  cancelUpdatePerson() {
+    this.form.reset();
+  }
+
+  ngOnInit(): void {}
 }

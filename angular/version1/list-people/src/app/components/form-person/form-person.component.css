@@ -1,3 +1,11 @@
+h1 {
+  color: #005080;
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 40px auto;
+}
+/* FORMULARIO */
 .person-form {
   width: 100%;
   max-width: 600px;
@@ -7,24 +15,122 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
-  background-color: #303030;
+  background-color: #005080;
 }
+
 legend {
   color: #fff;
   font-size: 20px;
   margin-bottom: 20px;
   text-transform: uppercase;
+  text-decoration: underline;
 }
 .mat-form-field {
   width: 100%;
+  margin-bottom: 10px;
 }
 
-.mat-list-item {
-  background: purple;
+.mat-select-panel {
+  background: #005080 !important;
 }
-/* #updated-buttons {
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #fff !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #fff !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #fff !important;
+}
+#formButtons {
+  display: flex;
+  gap: 20px;
+}
+.mat-button.mat-primary.mat-button-disabled,
+.mat--button.mat-button-disabled.mat-button-disabled {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.mat-button.mat-primary.mat-button-disabled:hover,
+.mat--button.mat-button-disabled.mat-button-disabled:hover {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.mat-button {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+}
+.mat-button:hover {
+  background: #303030;
+  color: #fff;
+  text-transform: uppercase;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #fff;
+}
+.mat-option {
+  background-color: #fff;
+  color: #005080;
+}
+.mat-option.mat-active,
+.mat-option:hover:not(.mat-option-disabled) {
+  background-color: #005080 !important;
+  color: #fff !important;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-focus-indicator {
+  background-color: #fff !important;
+  color: #005080 !important;
+}
+
+/* CARDS */
+
+.cardList {
+  margin: 40px;
+  display: flex;
+  gap: 0 20px;
+}
+.mat-card {
+  background-color: #005080;
+  width: 33.33%;
+  padding: 20px;
+}
+.mat-card span {
+  font-weight: bold;
+}
+.mat-card-title {
+  border-bottom: 1px solid #fff;
+}
+
+.mat-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  margin: 0 0 20px;
+}
+
+/* #updateButton {
   display: none;
 } */
-#updateButton {
-  display: none;
+
+/* RESPOSIVE */
+
+@media only screen and (max-width: 992px) {
+  .mat-card {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .mat-card {
+    width: 100%;
+  }
 }
