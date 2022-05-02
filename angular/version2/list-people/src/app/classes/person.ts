@@ -6,6 +6,7 @@ export enum genderSelect {
 }
 
 export class Person {
+  id: number;
   nombre: string;
   apellidos: string;
   edad: number;
@@ -15,6 +16,7 @@ export class Person {
   genero: genderSelect;
 
   constructor(
+    id: number,
     nombre: string,
     apellidos: string,
     edad: number,
@@ -23,6 +25,7 @@ export class Person {
     colorFavorito: string,
     genero: genderSelect
   ) {
+    this.id = id;
     this.nombre = nombre;
     this.apellidos = apellidos;
     this.edad = edad;
