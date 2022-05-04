@@ -99,9 +99,10 @@ legend {
   gap: 0 20px;
 }
 .mat-card {
-  background-color: #005080;
+  background-color: #005080 !important;
   width: 33.33%;
   padding: 20px;
+  color: #fff !important;
 }
 .mat-card span {
   font-weight: bold;

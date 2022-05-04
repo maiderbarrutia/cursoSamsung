@@ -50,13 +50,13 @@ export class FormPersonComponent implements OnInit {
   }
 
   //Hacer que los registros de la persona seleccionada se puedan modificar
-  editPerson(selectedPerson: Person, i: number) {
+  editPerson(selectedPerson: Person) {
     this.form.setValue(selectedPerson);
     this.formButtons.nativeElement.style.display = 'none';
   }
 
   //Guardar los datos modificados
-  updatePerson(selectedPerson: Person, i: number) {
+  updatePerson(selectedPerson: Person) {
     selectedPerson.nombre = this.form.controls['nombre'].value;
     selectedPerson.apellidos = this.form.controls['apellidos'].value;
     selectedPerson.edad = this.form.controls['edad'].value;
