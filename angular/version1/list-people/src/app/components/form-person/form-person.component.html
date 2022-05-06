@@ -173,7 +173,6 @@
     <mat-label>Género</mat-label>
     <mat-select formControlName="genero" required #genero>
       <mat-option>Selecciona un género</mat-option>
-      <!-- En mat-option deberia poner [value]="i" pero luego al pintarlo me pinta el index en vez de el contenido -->
       <mat-option
         *ngFor="let genderName of genderSelect(); let i = index"
         [value]="genderName"
@@ -217,7 +216,7 @@
 
 <!-- Lista de personas -->
 <div class="cardList">
-  <mat-card class="" #peopleCard *ngFor="let person of people; let i = index">
+  <mat-card #peopleCard *ngFor="let person of people; let i = index">
     <mat-card-title>
       <p>{{ person.nombre }}</p>
       <p>{{ person.apellidos }}</p>
@@ -232,26 +231,24 @@
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <div id="editButton" #editButton>
-        <button
-          mat-button
-          type="submit"
-          color="primary"
-          (click)="editPerson(person)"
-        >
-          Editar
-        </button>
-      </div>
-      <div id="updateButton" #updateButton>
-        <button
-          mat-button
-          type="submit"
-          color="primary"
-          (click)="updatePerson(person)"
-        >
-          Modificar
-        </button>
-      </div>
+      <button
+        mat-button
+        type="submit"
+        color="primary"
+        (click)="editPerson(person)"
+        *ngIf="editButtonVisible"
+      >
+        Editar
+      </button>
+      <button
+        mat-button
+        type="submit"
+        color="primary"
+        (click)="updatePerson(person)"
+        *ngIf="updateButtonVisible"
+      >
+        Modificar
+      </button>
       <button
         mat-button
         type="submit"

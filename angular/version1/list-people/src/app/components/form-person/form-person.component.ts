@@ -8,9 +8,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-person.component.css'],
 })
 export class FormPersonComponent implements OnInit {
-  @ViewChild('formButtons') formButtons!: ElementRef;
   people: Person[];
   form: FormGroup;
+  @ViewChild('formButtons') formButtons!: ElementRef;
+  editButtonVisible: boolean;
+  updateButtonVisible: boolean;
   constructor() {
     this.people = [];
     this.form = new FormGroup({
@@ -35,6 +37,8 @@ export class FormPersonComponent implements OnInit {
       ]),
       genero: new FormControl('', [Validators.required]),
     });
+    this.editButtonVisible = true;
+    this.updateButtonVisible = false;
   }
   //Añadir en el select del formulario las opciones del enum llamado genderSelect
   genderSelect(): Array<string> {
@@ -53,6 +57,9 @@ export class FormPersonComponent implements OnInit {
   editPerson(selectedPerson: Person) {
     this.form.setValue(selectedPerson);
     this.formButtons.nativeElement.style.display = 'none';
+
+    this.editButtonVisible = false;
+    this.updateButtonVisible = true;
   }
 
   //Guardar los datos modificados
@@ -66,6 +73,8 @@ export class FormPersonComponent implements OnInit {
     selectedPerson.genero = this.form.controls['genero'].value;
 
     this.formButtons.nativeElement.style.display = 'flex';
+    this.editButtonVisible = true;
+    this.updateButtonVisible = false;
 
     this.form.reset();
   }
