@@ -11,8 +11,8 @@ export class FormPersonComponent implements OnInit {
   people: Person[];
   form: FormGroup;
   @ViewChild('formButtons') formButtons!: ElementRef;
-  editButtonVisible: boolean;
-  updateButtonVisible: boolean;
+  selectedPersonId: number | null;
+  isEditing: boolean;
   constructor() {
     this.people = [];
     this.form = new FormGroup({
@@ -37,9 +37,10 @@ export class FormPersonComponent implements OnInit {
       ]),
       genero: new FormControl('', [Validators.required]),
     });
-    this.editButtonVisible = true;
-    this.updateButtonVisible = false;
+    this.isEditing = false;
+    this.selectedPersonId = null;
   }
+
   //Añadir en el select del formulario las opciones del enum llamado genderSelect
   genderSelect(): Array<string> {
     const genderName = Object.values(genderSelect);
@@ -54,16 +55,18 @@ export class FormPersonComponent implements OnInit {
   }
 
   //Hacer que los registros de la persona seleccionada se puedan modificar
-  editPerson(selectedPerson: Person) {
+  editPerson(selectedPerson: Person, i: number) {
+    this.isEditing = true;
+    this.selectedPersonId = i;
+
     this.form.setValue(selectedPerson);
     this.formButtons.nativeElement.style.display = 'none';
-
-    this.editButtonVisible = false;
-    this.updateButtonVisible = true;
   }
 
   //Guardar los datos modificados
   updatePerson(selectedPerson: Person) {
+    this.isEditing = false;
+
     selectedPerson.nombre = this.form.controls['nombre'].value;
     selectedPerson.apellidos = this.form.controls['apellidos'].value;
     selectedPerson.edad = this.form.controls['edad'].value;
@@ -73,9 +76,6 @@ export class FormPersonComponent implements OnInit {
     selectedPerson.genero = this.form.controls['genero'].value;
 
     this.formButtons.nativeElement.style.display = 'flex';
-    this.editButtonVisible = true;
-    this.updateButtonVisible = false;
-
     this.form.reset();
   }
 

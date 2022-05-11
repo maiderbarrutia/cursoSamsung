@@ -5,6 +5,7 @@ h1 {
   font-size: 30px;
   margin: 40px auto;
 }
+
 /* FORMULARIO */
 .person-form {
   width: 100%;
@@ -17,7 +18,6 @@ h1 {
   padding: 40px;
   background-color: #005080;
 }
-
 legend {
   color: #fff;
   font-size: 20px;
@@ -29,19 +29,15 @@ legend {
   width: 100%;
   margin-bottom: 10px;
 }
-
 .mat-select-panel {
   background: #005080 !important;
 }
-
 ::ng-deep .mat-focused .mat-form-field-label {
   color: #fff !important;
 }
-
 ::ng-deep.mat-form-field-underline {
   background-color: #fff !important;
 }
-
 ::ng-deep.mat-form-field-ripple {
   background-color: #fff !important;
 }
@@ -92,7 +88,6 @@ legend {
 }
 
 /* CARDS */
-
 .cardList {
   margin: 40px;
   display: flex;
@@ -110,7 +105,6 @@ legend {
 .mat-card-title {
   border-bottom: 1px solid #fff;
 }
-
 .mat-card-actions {
   display: flex;
   flex-wrap: wrap;
@@ -119,7 +113,6 @@ legend {
 }
 
 /* RESPOSIVE */
-
 @media only screen and (max-width: 992px) {
   .mat-card {
     width: 50%;

@@ -235,8 +235,8 @@
         mat-button
         type="submit"
         color="primary"
-        (click)="editPerson(person)"
-        *ngIf="editButtonVisible"
+        (click)="editPerson(person, i)"
+        *ngIf="!isEditing || selectedPersonId !== i"
       >
         Editar
       </button>
@@ -245,7 +245,7 @@
         type="submit"
         color="primary"
         (click)="updatePerson(person)"
-        *ngIf="updateButtonVisible"
+        *ngIf="isEditing && selectedPersonId === i"
       >
         Modificar
       </button>
