@@ -31,12 +31,19 @@
     type="submit"
     color="primary"
     [disabled]="!form.valid"
+    *ngIf="!isEditing"
     (click)="addMember()"
   >
     Añadir persona
   </button>
 
-  <button mat-button type="submit" color="primary" (click)="updateMember()">
+  <button
+    mat-button
+    type="submit"
+    color="primary"
+    *ngIf="isEditing"
+    (click)="updateMember(memberToUpdate)"
+  >
     Actualizar datos
   </button>
 </form>
@@ -81,7 +88,7 @@
 
   <ng-container matColumnDef="buttons">
     <th mat-header-cell *matHeaderCellDef>Modificar</th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element; let i = index">
       <button
         mat-button
         type="submit"
@@ -90,7 +97,12 @@
       >
         Editar
       </button>
-      <button mat-button type="submit" color="primary" (click)="deleteMember()">
+      <button
+        mat-button
+        type="submit"
+        color="primary"
+        (click)="deleteMember(i)"
+      >
         Eliminar
       </button>
     </td>

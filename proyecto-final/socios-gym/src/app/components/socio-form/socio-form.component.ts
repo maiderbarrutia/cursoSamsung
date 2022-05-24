@@ -12,10 +12,14 @@ export class SocioFormComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'buttons'];
   socios: Socio[];
   form: FormGroup;
+  memberToUpdate: number;
+  isEditing: boolean;
   dataSource = new MatTableDataSource<Socio>();
 
   constructor() {
     this.socios = [];
+    this.memberToUpdate = -1;
+    this.isEditing = false;
     this.form = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -34,16 +38,23 @@ export class SocioFormComponent implements OnInit {
 
   //Hacer que los registros del socio seleccionado se puedan modificar
   editMember(selectedPerson: Socio) {
+    this.isEditing = true;
     this.form.setValue(selectedPerson);
   }
 
   //Guardar los datos modificados
-  updateMember() {
+  updateMember(memberToUpdate: number) {
+    this.isEditing = false;
+    this.socios[memberToUpdate] = this.form.value;
+    this.dataSource.data = this.socios;
     this.form.reset();
   }
 
   //Borrar los registros de la persona
-  deleteMember() {}
+  deleteMember(i: number) {
+    this.socios.splice(i, 1);
+    this.dataSource.data = this.socios;
+  }
 
   ngOnInit(): void {}
 }
