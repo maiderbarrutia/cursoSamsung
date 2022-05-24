@@ -1,0 +1,107 @@
+/* FORMULARIO */
+.form-socio {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #005080;
+}
+legend {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 80px;
+}
+.mat-select-panel {
+  background: #005080 !important;
+}
+::ng-deep .mat-form-field-placeholder {
+  color: #fff;
+}
+.mat-form-field-outline,
+.mat-form-field-empty.mat-form-field-label,
+.mat-form-field-label,
+.mat-form-field-underline,
+.mat-input-element,
+::placeholder {
+  color: #fff !important;
+  padding: 10px;
+}
+::ng-deep .mat-focused .mat-form-field-placeholder {
+  color: #fff;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #fff !important;
+}
+::ng-deep.mat-form-field-underline {
+  background-color: #fff !important;
+}
+::ng-deep.mat-form-field-ripple {
+  background-color: #fff !important;
+}
+#formButtons {
+  display: flex;
+  gap: 20px;
+}
+.mat-button.mat-primary.mat-button-disabled,
+.mat--button.mat-button-disabled.mat-button-disabled {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.mat-button.mat-primary.mat-button-disabled:hover,
+.mat--button.mat-button-disabled.mat-button-disabled:hover {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.mat-button {
+  background: #fff;
+  color: #005080;
+  text-transform: uppercase;
+}
+.mat-button:hover {
+  background: #303030;
+  color: #fff;
+  text-transform: uppercase;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #fff;
+}
+.mat-option {
+  background-color: #fff;
+  color: #005080;
+}
+.mat-option.mat-active,
+.mat-option:hover:not(.mat-option-disabled) {
+  background-color: #005080 !important;
+  color: #fff !important;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-focus-indicator {
+  background-color: #fff !important;
+  color: #005080 !important;
+}
+
+.mat-error {
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* TABLA */
+
+.demo-table {
+  width: 100%;
+}
