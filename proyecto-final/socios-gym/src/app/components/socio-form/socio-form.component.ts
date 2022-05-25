@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./socio-form.component.css'],
 })
 export class SocioFormComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'buttons'];
+  displayedColumns: string[] = ['nombre', 'numeroSocio', 'buttons'];
   socios: Socio[];
   form: FormGroup;
   memberToUpdate: number;
@@ -18,28 +18,43 @@ export class SocioFormComponent implements OnInit {
 
   constructor() {
     this.socios = [];
-    this.memberToUpdate = -1;
+    this.memberToUpdate = 0;
     this.isEditing = false;
     this.form = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
+      socio: new FormControl('', [Validators.required]),
     });
   }
 
   //Añadir socio y visualizarlas en una lista
   addMember() {
     let newMember = this.form.value;
-    this.socios.push(newMember);
-    this.dataSource.data = this.socios;
-    this.form.reset();
+
+    let memberNumberExists = this.socios.find(
+      (element) => element.socio === newMember.socio
+    );
+
+    if (!memberNumberExists) {
+      this.socios.push(newMember);
+      this.dataSource.data = this.socios;
+      this.form.reset();
+    } else {
+      alert(
+        `El número de socio ${{
+          memberNumberExists,
+        }} introducido ya existe, introduzca uno nuevo`
+      );
+    }
   }
 
   //Hacer que los registros del socio seleccionado se puedan modificar
-  editMember(selectedPerson: Socio) {
+  editMember(selectedPerson: Socio, i: number) {
     this.isEditing = true;
     this.form.setValue(selectedPerson);
+    this.memberToUpdate = i;
   }
 
   //Guardar los datos modificados
