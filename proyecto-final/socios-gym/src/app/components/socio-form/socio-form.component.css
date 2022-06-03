@@ -1,3 +1,17 @@
+.container {
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #9904ff;
+  font-weight: 500 !important;
+}
+h2 {
+  text-align: center;
+}
 /* FORMULARIO */
 .form-socio {
   width: 100%;
@@ -8,7 +22,8 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
-  background-color: #005080;
+  background-color: #9904ff;
+  margin-bottom: 40px;
 }
 legend {
   color: #fff;
@@ -19,13 +34,22 @@ legend {
 }
 .mat-form-field {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   height: 80px;
 }
+mat-label {
+  color: #fff;
+}
+.mat-form-field-label {
+  color: #fff !important;
+}
 .mat-select-panel {
-  background: #005080 !important;
+  background: #9904ff !important;
 }
 ::ng-deep .mat-form-field-placeholder {
+  color: #fff;
+}
+md-select ._md-select-value._md-select-placeholder {
   color: #fff;
 }
 .mat-form-field-outline,
@@ -56,20 +80,20 @@ legend {
 .mat-button.mat-primary.mat-button-disabled,
 .mat--button.mat-button-disabled.mat-button-disabled {
   background: #fff;
-  color: #005080;
+  color: #9904ff;
   text-transform: uppercase;
   opacity: 0.3;
 }
 .mat-button.mat-primary.mat-button-disabled:hover,
 .mat--button.mat-button-disabled.mat-button-disabled:hover {
   background: #fff;
-  color: #005080;
+  color: #9904ff;
   text-transform: uppercase;
   opacity: 0.3;
 }
 .mat-button {
   background: #fff;
-  color: #005080;
+  color: #9904ff;
   text-transform: uppercase;
 }
 .mat-button:hover {
@@ -82,17 +106,17 @@ legend {
 }
 .mat-option {
   background-color: #fff;
-  color: #005080;
+  color: #9904ff;
 }
 .mat-option.mat-active,
 .mat-option:hover:not(.mat-option-disabled) {
-  background-color: #005080 !important;
+  background-color: #9904ff !important;
   color: #fff !important;
 }
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
 .mat-focus-indicator {
   background-color: #fff !important;
-  color: #005080 !important;
+  color: #9904ff !important;
 }
 
 .mat-error {
@@ -102,6 +126,38 @@ legend {
 
 /* TABLA */
 
-.demo-table {
+.member-table {
   width: 100%;
+  background: #cecece;
+}
+.member-table .table-buttons {
+  display: flex;
+  gap: 20px;
+}
+.member-table .mat-button {
+  background-color: #9904ff !important;
+  color: #fff !important;
+}
+.member-table td {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+.member-table .mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.member-table .mat-row:hover .mat-cell {
+  border-color: #9904ff;
+}
+
+/* Texto numero de socios totales */
+.sociosTotal {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.sociosTotal span {
+  font-size: 30px;
 }

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Socio, sexSelect } from 'src/app/classes/socio';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'socio-form',
@@ -9,12 +11,27 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./socio-form.component.css'],
 })
 export class SocioFormComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'numeroSocio', 'buttons'];
+  displayedColumns: string[] = [
+    'numeroSocio',
+    'nombre',
+    'apellidos',
+    'dni',
+    'telefono',
+    'sexo',
+    'buttons',
+  ];
   socios: Socio[];
   form: FormGroup;
   memberToUpdate: number;
   isEditing: boolean;
   dataSource = new MatTableDataSource<Socio>();
+  @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
+    this.dataSource.paginator = paginator;
+  }
+  @ViewChild('empTbSort') empTbSort = new MatSort();
+  ngAfterViewInit() {
+    this.dataSource.sort = this.empTbSort;
+  }
 
   constructor() {
     this.socios = [];
@@ -25,8 +42,21 @@ export class SocioFormComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
+      apellidos: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       socio: new FormControl('', [Validators.required]),
+      dni: new FormControl('', [Validators.required, Validators.minLength(9)]),
+      telefono: new FormControl('', [Validators.required]),
+      sexo: new FormControl('', [Validators.required]),
     });
+  }
+
+  //Añadir en el select del formulario las opciones del enum llamado sexSelect
+  sexSelect(): Array<string> {
+    const sexName = Object.values(sexSelect);
+    return sexName;
   }
 
   //Añadir socio y visualizarlas en una lista
@@ -42,11 +72,7 @@ export class SocioFormComponent implements OnInit {
       this.dataSource.data = this.socios;
       this.form.reset();
     } else {
-      alert(
-        `El número de socio ${{
-          memberNumberExists,
-        }} introducido ya existe, introduzca uno nuevo`
-      );
+      alert(`El número de socio introducido ya existe, introduzca uno nuevo`);
     }
   }
 
