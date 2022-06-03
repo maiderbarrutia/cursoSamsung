@@ -40,11 +40,22 @@ legend {
 mat-label {
   color: #fff;
 }
-.mat-form-field-label {
+::ng-deep .mat-select-arrow {
   color: #fff !important;
 }
+::ng-deep .mat-select-value {
+  color: #fff !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: #fff !important;
+}
+
 .mat-select-panel {
   background: #9904ff !important;
+}
+.mat-select {
+  margin-top: 20px;
 }
 ::ng-deep .mat-form-field-placeholder {
   color: #fff;
@@ -138,6 +149,9 @@ md-select ._md-select-value._md-select-placeholder {
   background-color: #9904ff !important;
   color: #fff !important;
 }
+.member-table .mat-button:hover {
+  background-color: #333 !important;
+}
 .member-table td {
   padding-top: 15px !important;
   padding-bottom: 15px !important;
@@ -145,11 +159,13 @@ md-select ._md-select-value._md-select-placeholder {
 .member-table .mat-row .mat-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
-  cursor: pointer;
 }
 
 .member-table .mat-row:hover .mat-cell {
   border-color: #9904ff;
+}
+mat-paginator {
+  background: #b0b0b0 !important;
 }
 
 /* Texto numero de socios totales */

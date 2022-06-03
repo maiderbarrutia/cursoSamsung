@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Socio, sexSelect } from 'src/app/classes/socio';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'socio-form',
@@ -27,6 +27,7 @@ export class SocioFormComponent implements OnInit {
   dataSource = new MatTableDataSource<Socio>();
   @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
     this.dataSource.paginator = paginator;
+    paginator._intl.itemsPerPageLabel = 'Socios por página:';
   }
   @ViewChild('empTbSort') empTbSort = new MatSort();
   ngAfterViewInit() {
@@ -59,14 +60,14 @@ export class SocioFormComponent implements OnInit {
     return sexName;
   }
 
-  //Añadir socio y visualizarlas en una lista
+  //Añadir socio y visualizarlas en una lista (tabla)
   addMember() {
     let newMember = this.form.value;
 
+    //Comprobar si el número de socio está ya en la lista
     let memberNumberExists = this.socios.find(
       (element) => element.socio === newMember.socio
     );
-
     if (!memberNumberExists) {
       this.socios.push(newMember);
       this.dataSource.data = this.socios;
@@ -83,7 +84,7 @@ export class SocioFormComponent implements OnInit {
     this.memberToUpdate = i;
   }
 
-  //Guardar los datos modificados
+  //Guardar los datos modificados del socio
   updateMember(memberToUpdate: number) {
     this.isEditing = false;
     this.socios[memberToUpdate] = this.form.value;
@@ -91,7 +92,7 @@ export class SocioFormComponent implements OnInit {
     this.form.reset();
   }
 
-  //Borrar los registros de la persona
+  //Borrar los registros del socio
   deleteMember(i: number) {
     this.socios.splice(i, 1);
     this.dataSource.data = this.socios;
